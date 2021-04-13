@@ -1,13 +1,16 @@
-
-{
+module.exports = {
   "development": {
     "username": "kadismile",
     "password": "111222333",
-    "database": "todos-dev",
+    "database": "pdp_reformers",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
   },
+/*  "development": {
+    "use_env_variable": process.env.DATABASE_URL,
+    dialect: 'postgres',
+  },*/
   "test": {
     "username": "root",
     "password": null,
@@ -23,3 +26,4 @@
     "dialect": "mysql"
   }
 }
+;
