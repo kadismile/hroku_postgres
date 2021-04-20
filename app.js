@@ -15,6 +15,6 @@ require('./server/routes')(app);
 /*app.get('*', (req, res) => res.status(200).send({
   message: 'Welcome to the beginning of nothingness.',
 }));*/
-app.use('/admin', express.static('public'));
+app.use(express.static('public'));
 
 module.exports = app;
