@@ -12,9 +12,9 @@ app.use(bodyParser.urlencoded({ extended: false }));
 console.log("process.env.DATABASE_URL,", typeof process.env.DATABASE_URL,)
 // Require our routes into the application.
 require('./server/routes')(app);
-app.get('*', (req, res) => res.status(200).send({
+/*app.get('*', (req, res) => res.status(200).send({
   message: 'Welcome to the beginning of nothingness.',
-}));
-app.use(express.static(__dirname + '/public'));
+}));*/
+app.use('/admin', express.static('public'));
 
 module.exports = app;
