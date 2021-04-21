@@ -50,6 +50,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull:false,
     },
+    address: {
+      type: DataTypes.STRING,
+      allowNull:false,
+    },
   }, {
     sequelize,
     modelName: 'Registration',
