@@ -1,9 +1,9 @@
 
 {
   "development": {
-    "username": "kadismile",
+    "username": "postgres",
     "password": "111222333",
-    "database": "todos-dev",
+    "database": "pdp_reformers",
     "host": "127.0.0.1",
     "port": 5432,
     "dialect": "postgres"
