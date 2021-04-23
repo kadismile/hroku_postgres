@@ -10,7 +10,7 @@ function SideBar() {
             <div className="navbar-brand-box">
               <br/>
               <h5>
-                <a href="/" style={{color: "white"}}>Grocesries2go</a>
+                <a href="/" style={{color: "white"}}>Democratic Reformers</a>
               </h5>
              
             </div>
