@@ -13,6 +13,8 @@ function RegistrationList() {
 
   const [productId, setProductId] = useState("")
 
+  const [regId, setRegId] = useState("")
+
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
@@ -27,7 +29,7 @@ function RegistrationList() {
         window.$('input[type=search]').addClass('form-control');
       }
     })()
-  }, [showModal])
+  }, [showModal, regId])
 
   const editProduct = (id) => {
     setProductToEdit(true)
@@ -45,6 +47,7 @@ function RegistrationList() {
     }).then( async (result) => {
       if (result.value) {
         const result = await removeRegistration(reg)
+        setRegId(Math.random() * 2)
         console.log(result)
       }
     })
