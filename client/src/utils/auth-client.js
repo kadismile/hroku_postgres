@@ -189,6 +189,14 @@ function registerUser(data) {
   }
   return client(`${url.BASE_URL}/auth/user/register`, {data}).then(data => data)
 }
+function removeRegistration(data) {
+  const token = getToken();
+  if (!token) {
+    return Promise.resolve(null)
+  }
+  console.log(data)
+  return client(`${url.BASE_URL}/registration-remove`, {data}).then(data => data)
+}
 
 function getToken() {
   let token = window.localStorage.getItem(localStorageKey);
@@ -212,5 +220,6 @@ function logout() {
 export {login, register, getToken, isLoggedIn, getUser, getCategory, createCategory,
   registerUser, getAllUsers, createProduct, getProductType, createProductType, getProducts,
   removeProduct, getProductById, updateProduct, updateImage, uploadProductCsv, uploadVariantCsv,
-  removeVariant, updateVariant, updateCategory, uploadCategoryCsv, updateProductType, uploadProductTypeCsv, getRegistrations}
+  removeVariant, updateVariant, updateCategory, uploadCategoryCsv, updateProductType, uploadProductTypeCsv,
+  getRegistrations, removeRegistration}
 export {logout} from './api-client'

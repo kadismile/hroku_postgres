@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import {getRegistrations, removeProduct} from "../../utils/auth-client";
+import {getRegistrations, removeRegistration} from "../../utils/auth-client";
 import Swal from "sweetalert2";
 import {Redirect} from "react-router";
 import {ProductCsvUpload} from "../../components/modals/product_csv_upload";
@@ -34,17 +34,17 @@ function RegistrationList() {
     setProductId(id)
   }
 
-  const deleteProduct = async (product) => {
+  const deleteProduct = async (reg) => {
     Swal.fire({
       title: 'Are you sure?',
-      text: `You will not be able to recover this product ${product.name}!`,
+      text: `You will not be able to recover this user ${reg.name}!`,
       icon: 'warning',
       showCancelButton: true,
       confirmButtonText: 'Yes, delete it!',
       cancelButtonText: 'No, keep it'
     }).then( async (result) => {
       if (result.value) {
-        const result = await removeProduct(product)
+        const result = await removeRegistration(reg)
         console.log(result)
       }
     })
@@ -102,6 +102,10 @@ function RegistrationList() {
                             </th>
                             <th className="sorting_asc" tabIndex={0} aria-controls="datatable-buttons" rowSpan={1}
                                 colSpan={1} style={{width: '274px'}} aria-sort="ascending"
+                                aria-label="Name: activate to sort column descending">Ward
+                            </th>
+                            <th className="sorting_asc" tabIndex={0} aria-controls="datatable-buttons" rowSpan={1}
+                                colSpan={1} style={{width: '274px'}} aria-sort="ascending"
                                 aria-label="Name: activate to sort column descending">Phone Number
                             </th>
                             <th className="sorting" tabIndex={0} aria-controls="datatable-buttons" rowSpan={1}
@@ -129,6 +133,7 @@ function RegistrationList() {
                               <tr key={index}>
                                 <th scope="row">{index+1}</th>
                                 <td>{user.name}</td>
+                                <td>{user.ward}</td>
                                 <td>{user.phone_number}</td>
                                 <td>{user.state}</td>
                                 <td>{user.email}</td>
@@ -139,9 +144,9 @@ function RegistrationList() {
                                   </a>*/}
                                 </td>
                                 <td>
-                                  {/*<a onClick={()=> deleteProduct(user)} style={{color: "#767c82", cursor: "pointer"}}>
+                                  <a onClick={()=> deleteProduct(user)} style={{color: "#767c82", cursor: "pointer"}}>
                                     <i className="fa fa-fw fa-trash" data-toggle="tooltip" data-placement="top" title=""data-original-title="remove"></i>
-                                  </a>*/}
+                                  </a>
                                 </td>
                               </tr>
                             )

@@ -18,5 +18,14 @@ module.exports = {
       res.status(400).send(e)
     }
   },
+  async remove(req, res) {
+    const {id} = req.body
+    try {
+      const reg = await Registration.destroy({where: {id} })
+      return res.status(200).send(reg)
+    } catch (e) {
+      res.status(400).send(e)
+    }
+  },
 };
 
