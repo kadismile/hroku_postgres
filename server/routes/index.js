@@ -18,6 +18,7 @@ module.exports = (app) => {
   app.post('/api/auth/user',protect, authController.getUser);
   app.post('/api/registrations', regController.create);
   app.get('/api/registrations', protect, regController.list);
+  app.post('/api/registration-remove', protect, regController.remove);
 
 
 
